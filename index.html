@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@zGatoO Estuvo Aquí</title>
     <style>
+        /* Estilos generales */
         body {
-            background-color: black;
-            color: #00FF00; /* Color verde de consola */
-            font-family: 'Courier New', monospace;
-            text-align: center;
-            font-size: 1.5em;
-            line-height: 1.5;
-            overflow: hidden;
             margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #00FF00; /* Color verde de terminal */
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            position: relative;
         }
 
         h1, h2 {
-            font-size: 2em;
-            margin-top: 20px;
+            font-family: 'Roboto', sans-serif;
             color: #00FF00;
-            animation: glitch 1s infinite;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
             cursor: pointer;
+            text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.7), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.3);
+            animation: glow 1.5s infinite alternate;
         }
 
         h1:hover {
@@ -29,23 +32,32 @@
             text-decoration: underline;
         }
 
-        @keyframes glitch {
-            0% { text-shadow: 2px 0 red, -2px 0 blue; }
-            10% { text-shadow: -2px 0 red, 2px 0 blue; }
-            20% { text-shadow: 2px 0 red, -2px 0 blue; }
-            30% { text-shadow: -2px 0 red, 2px 0 blue; }
-            40% { text-shadow: 2px 0 red, -2px 0 blue; }
-            50% { text-shadow: -2px 0 red, 2px 0 blue; }
-            60% { text-shadow: 2px 0 red, -2px 0 blue; }
-            70% { text-shadow: -2px 0 red, 2px 0 blue; }
-            80% { text-shadow: 2px 0 red, -2px 0 blue; }
-            90% { text-shadow: -2px 0 red, 2px 0 blue; }
-            100% { text-shadow: 2px 0 red, -2px 0 blue; }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #00FF00;
+            animation: fadeIn 2s ease-in-out;
         }
 
+        /* Animación de resplandor */
+        @keyframes glow {
+            0% {
+                text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.7), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 255, 0, 0.3);
+            }
+            100% {
+                text-shadow: 0px 0px 20px rgba(0, 255, 0, 1), 0 0 50px rgba(0, 255, 0, 0.7), 0 0 70px rgba(0, 255, 0, 0.5);
+            }
+        }
+
+        /* Animación de fade-in */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Animación Matrix */
         .matrix {
             font-family: 'Courier New', monospace;
-            color: #00FF00;
             font-size: 2em;
             position: absolute;
             top: 0;
@@ -54,48 +66,57 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
-            animation: matrix 5s linear infinite;
+            color: #00FF00;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         @keyframes matrix {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(100%);
-            }
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100%); }
+        }
+
+        .matrix div {
+            animation: matrix 5s linear infinite;
+        }
+
+        /* Estilos de la terminal */
+        .terminal {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            border-radius: 8px;
+            border: 2px solid #00FF00;
+            box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.8);
+            color: #00FF00;
+            font-size: 1.2em;
+            letter-spacing: 1px;
+            text-align: left;
+            overflow: hidden;
         }
 
         .scrolling-text {
-            font-size: 1.2em;
             white-space: nowrap;
             overflow: hidden;
             width: 100%;
-            position: relative;
-            display: inline-block;
-        }
-
-        .scrolling-text span {
-            display: inline-block;
-            animation: scroll 10s linear infinite;
+            animation: scroll 12s linear infinite;
         }
 
         @keyframes scroll {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
         }
 
+        /* Estilos del pie de página */
         .footer {
             position: fixed;
-            bottom: 10px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             font-size: 1.2em;
             animation: pulse 1s infinite;
+            color: #00FF00;
         }
 
         @keyframes pulse {
@@ -104,30 +125,78 @@
             100% { transform: scale(1); }
         }
 
+        /* Fondo oscuro con animación de matrix */
+        .matrix-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #00FF00;
+            font-size: 1.5em;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: matrix 5s linear infinite;
+        }
+
+        /* Estilo cibernético del mensaje al gobierno de Perú */
+        .gov-message {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            color: #FF4500;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1.5px;
+            text-align: center;
+            text-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8), 0 0 30px rgba(255, 69, 0, 0.6), 0 0 40px rgba(255, 69, 0, 0.5);
+            animation: pulseMessage 2s infinite alternate;
+        }
+
+        @keyframes pulseMessage {
+            0% { text-shadow: 0px 0px 10px rgba(255, 69, 0, 0.8), 0 0 30px rgba(255, 69, 0, 0.6); }
+            100% { text-shadow: 0px 0px 30px rgba(255, 69, 0, 1), 0 0 50px rgba(255, 69, 0, 0.8); }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Títulos y enlace a Telegram -->
     <h1 onclick="window.location.href='https://t.me/zGatoO';">@zGatoO Estuvo Aquí</h1>
-    <h2>¡Hackeando el ciberespacio! | Hackeé el gob.pe</h2>
+    <h2>Hackeé el gob.pe | Bienvenidos a mi mundo digital</h2>
 
+    <!-- Mensaje cibernético para el Gobierno de Perú -->
+    <div class="gov-message">
+        <p>¡ATENCIÓN GOBIERNO DEL PERÚ! - Sistema hackeado.</p>
+    </div>
+
+    <!-- Texto deslizante de la terminal -->
     <div class="terminal">
         <div class="scrolling-text">
-            <span>Bienvenido a la terminal de @zGatoO... Acceso otorgado... </span>
+            <span>Bienvenido a la terminal de @zGatoO... Acceso otorgado... Hackeando sistemas...</span>
         </div>
     </div>
 
+    <!-- Pie de página -->
     <div class="footer">
-        <p>Estás siendo observado...</p>
+        <p>Estás siendo observado... Sistema comprometido.</p>
     </div>
 
     <!-- Animación de Matrix -->
     <div class="matrix">
-        <div style="animation: matrix 3s linear infinite;">1 0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 0</div>
-        <div style="animation: matrix 4s linear infinite;">0 1 0 1 1 1 1 0 1 1 1 0 0 0 1 1</div>
-        <div style="animation: matrix 5s linear infinite;">1 1 0 0 1 0 0 1 1 0 1 0 1 1 1 1</div>
-        <div style="animation: matrix 6s linear infinite;">0 1 1 0 1 0 1 0 0 1 1 0 0 1 1 0</div>
-        <div style="animation: matrix 7s linear infinite;">1 0 0 1 1 0 1 1 0 1 0 0 1 1 0 1</div>
+        <div>1 0 1 1 0 1 0 1 1 0 1 1 0 0 1 1 0</div>
+        <div>0 1 0 1 1 1 1 0 1 1 1 0 0 0 1 1</div>
+        <div>1 1 0 0 1 0 0 1 1 0 1 0 1 1 1 1</div>
+        <div>0 1 1 0 1 0 1 0 0 1 1 0 0 1 1 0</div>
+        <div>1 0 0 1 1 0 1 1 0 1 0 0 1 1 0 1</div>
+    </div>
+
+    <!-- Texto de fondo animado -->
+    <div class="matrix-text">
+        <p>Hacking In Progress... Hackeando Gob.pe</p>
     </div>
 
 </body>
