@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@zGatoO Estuvo Aquí</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00; /* Color verde de consola */
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.5em;
+            line-height: 1.5;
+        }
+        
+        h1, h2 {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #00FF00;
+            animation: glitch 1s infinite;
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            10% { text-shadow: -2px 0 red, 2px 0 blue; }
+            20% { text-shadow: 2px 0 red, -2px 0 blue; }
+            30% { text-shadow: -2px 0 red, 2px 0 blue; }
+            40% { text-shadow: 2px 0 red, -2px 0 blue; }
+            50% { text-shadow: -2px 0 red, 2px 0 blue; }
+            60% { text-shadow: 2px 0 red, -2px 0 blue; }
+            70% { text-shadow: -2px 0 red, 2px 0 blue; }
+            80% { text-shadow: 2px 0 red, -2px 0 blue; }
+            90% { text-shadow: -2px 0 red, 2px 0 blue; }
+            100% { text-shadow: 2px 0 red, -2px 0 blue; }
+        }
+
+        .terminal {
+            background-color: black;
+            color: #00FF00;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+            margin: 50px auto;
+            width: 90%;
+            border: 1px solid #00FF00;
+            box-shadow: 0 0 10px #00FF00;
+        }
+
+        .scrolling-text {
+            font-size: 1.2em;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            display: inline-block;
+        }
+
+        .scrolling-text span {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2em;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>@zGatoO Estuvo Aquí</h1>
+    <h2>¡Hackeando el ciberespacio!</h2>
+
+    <div class="terminal">
+        <div class="scrolling-text">
+            <span>Bienvenido a la terminal de @zGatoO... Acceso otorgado... </span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Estás siendo observado...</p>
+    </div>
+
+</body>
+</html>
